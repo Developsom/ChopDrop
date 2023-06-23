@@ -3,14 +3,17 @@ import org.osbot.rs07.api.model.RS2Object;
 import org.osbot.rs07.script.Script;
 import org.osbot.rs07.script.ScriptManifest;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-@ScriptManifest(name = "Woodcutter", author = "Your Name", version = 1.0, info = "", logo = "")
-public class WoodcutterScript extends Script implements ActionListener {
+
+
+@ScriptManifest(name = "ChopDrop", author = "BackToRS", version = 1.0, info = "", logo = "")
+public class ChopDrop extends Script implements ActionListener {
     private final List<String> treeOptions = new ArrayList<>();
     private final List<String> logOptions = new ArrayList<>();
     private String selectedTree;
@@ -33,18 +36,33 @@ public class WoodcutterScript extends Script implements ActionListener {
         return random(200, 300); // Adjust the delay between actions if needed
     }
 
-    private void chopTree() {
+    private void chopTree() throws InterruptedException {
         RS2Object tree = getObjects().closest(object -> object != null && object.getName().equals(selectedTree));
         if (tree != null && tree.isVisible()) {
             if (tree.interact("Chop down")) {
-                MethodProvider.sleepUntil(() -> myPlayer().isAnimating(), random(3000, 5000));
+                // Wait for the player to start chopping
+                long startTime = System.currentTimeMillis();
+                while (System.currentTimeMillis() - startTime < random(3000, 5000)) {
+                    if (myPlayer().isAnimating()) {
+                        break;
+                    }
+                    sleep(random(200, 500));
+                }
+
+                // Wait until the player stops chopping or the inventory is full
+                startTime = System.currentTimeMillis();
+                while (System.currentTimeMillis() - startTime < random(8000, 12000)) {
+                    if (!myPlayer().isAnimating() || getInventory().isFull()) {
+                        break;
+                    }
+                    sleep(random(200, 500));
+                }
             }
         } else {
             // Walk to the nearest tree
             getWalking().webWalk(tree.getPosition());
         }
     }
-
     private void dropLogs() {
         Inventory inventory = getInventory();
         inventory.dropAll(item -> item != null && item.getName().equals(selectedLog));
