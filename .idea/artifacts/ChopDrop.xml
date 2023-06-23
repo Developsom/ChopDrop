@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="ChopDrop">
+    <output-path>$PROJECT_DIR$/out/artifacts/ChopDrop</output-path>
+    <root id="archive" name="ChopDrop.jar">
+      <element id="module-output" name="ChopDrop" />
+    </root>
+  </artifact>
+</component>
