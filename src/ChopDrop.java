@@ -59,7 +59,7 @@ public class ChopDrop extends Script implements ActionListener {
                 }
             }
         } else {
-            Position targetPosition = tree != null ? tree.getPosition() : getWalking().getWebPathFinder().getNextTileOnWeb(getLocalPlayer().getPosition());
+            Position targetPosition = tree != null ? tree.getPosition() : getWalking().getWebPathBuilder().buildTo(getLocalPlayer().getPosition());
             if (targetPosition != null) {
                 if (getMap().canReach(targetPosition)) {
                     getWalking().webWalk(targetPosition);
@@ -71,6 +71,7 @@ public class ChopDrop extends Script implements ActionListener {
             }
         }
     }
+
 
 
     private void dropLogs() {
