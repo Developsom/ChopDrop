@@ -1,8 +1,8 @@
 import org.osbot.rs07.api.Inventory;
+import org.osbot.rs07.api.map.Position;
 import org.osbot.rs07.api.model.RS2Object;
 import org.osbot.rs07.script.Script;
 import org.osbot.rs07.script.ScriptManifest;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -59,10 +59,20 @@ public class ChopDrop extends Script implements ActionListener {
                 }
             }
         } else {
-            // Walk to the nearest tree
-            getWalking().webWalk(tree.getPosition());
+            Position targetPosition = tree != null ? tree.getPosition() : getWalking().getWebPathFinder().getNextTileOnWeb(getLocalPlayer().getPosition());
+            if (targetPosition != null) {
+                if (getMap().canReach(targetPosition)) {
+                    getWalking().webWalk(targetPosition);
+                } else {
+                    log("Cannot reach the target position!");
+                }
+            } else {
+                log("No reachable trees found!");
+            }
         }
     }
+
+
     private void dropLogs() {
         Inventory inventory = getInventory();
         inventory.dropAll(item -> item != null && item.getName().equals(selectedLog));
@@ -83,7 +93,7 @@ public class ChopDrop extends Script implements ActionListener {
         selectedLog = logOptions.get(0);
 
         EventQueue.invokeLater(() -> {
-            JFrame frame = new JFrame("Woodcutter");
+            JFrame frame = new JFrame("ChopDrop");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(300, 150);
             frame.setLayout(new FlowLayout());
@@ -107,7 +117,7 @@ public class ChopDrop extends Script implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Start")) {
-            log("Woodcutter script started!");
+            log("ChopDrop script started!");
             EventQueue.invokeLater(() -> {
                 JFrame frame = (JFrame) SwingUtilities.getWindowAncestor((Component) e.getSource());
                 frame.dispose();
@@ -117,7 +127,7 @@ public class ChopDrop extends Script implements ActionListener {
 
     @Override
     public void onExit() {
-        log("Thank you for using WoodcutterScript!");
+        log("Thank you for using ChopDrop!");
     }
 }
 

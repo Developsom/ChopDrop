@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a91509d-0b21-48c3-99ba-f3a1c718b5c6" name="Changes" comment="" />
+    <list default="true" id="4a91509d-0b21-48c3-99ba-f3a1c718b5c6" name="Changes" comment="Sleep method had some issues">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChopDrop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChopDrop.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2RcCTFTevsoplHzDu5jAhljOg8J" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -20,7 +36,16 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -32,8 +57,76 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1687539989393</updated>
-      <workItem from="1687539990703" duration="3000" />
+      <workItem from="1687539990703" duration="5332000" />
     </task>
+    <task id="LOCAL-00001" summary="Repo">
+      <created>1687541161940</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687541161940</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Test">
+      <created>1687541440673</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1687541440674</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Setup pseudo code">
+      <created>1687541658271</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1687541658272</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Changes">
+      <created>1687548435768</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687548435768</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added trees and logs">
+      <created>1687548479997</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687548479997</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Sleep method had some issues">
+      <created>1687549427383</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1687549427383</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Repo" />
+    <MESSAGE value="Test" />
+    <MESSAGE value="Setup pseudo code" />
+    <MESSAGE value="Changes" />
+    <MESSAGE value="Added trees and logs" />
+    <MESSAGE value="Sleep method had some issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sleep method had some issues" />
   </component>
 </project>
