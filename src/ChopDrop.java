@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @ScriptManifest(name = "ChopDrop", author = "BackToRS", version = 1.0, info = "", logo = "")
-public class ChopDrop extends Script implements ActionListener {
+public class ChopDrop<WebPathFinder> extends Script implements ActionListener {
     private final List<String> treeOptions = new ArrayList<>();
     private final List<String> logOptions = new ArrayList<>();
     private String selectedTree;
@@ -59,10 +59,12 @@ public class ChopDrop extends Script implements ActionListener {
                 }
             }
         } else {
-            Position targetPosition = tree != null ? tree.getPosition() : getWalking().getWebPathBuilder().buildTo(getLocalPlayer().getPosition());
+            Position targetPosition = tree != null ? tree.getPosition() : getWalking().getDestination();
             if (targetPosition != null) {
-                if (getMap().canReach(targetPosition)) {
-                    getWalking().webWalk(targetPosition);
+                WebPathFinder webPathFinder = new WebPathFinder(getBot().getClient().getWeb());
+                Path path = webPathFinder.calculate(getLocalPlayer().getPosition(), targetPosition);
+                if (path != null && path.isReachable()) {
+                    getWalking().walkPath(path);
                 } else {
                     log("Cannot reach the target position!");
                 }
